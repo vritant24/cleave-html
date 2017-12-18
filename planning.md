@@ -43,8 +43,8 @@ modules that will be inlined into the file itself.
 <!-- end of output.html -->
 ```
 
-Future Addition Ideas:
-* Even for static web pages it may be useful to allow for mappings of data sets to provide easy list creation.
+### Future Addition Ideas:
+*Even for static web pages it may be useful to allow for mappings of data sets to provide easy list creation.
   Depending on how this is implemented we may want to consider adding easy support for storing and mapping data sets.
 	This isn't necessary as it can be done by appending nodes to the dom directly within a script tag, but this may be
-	worth considering later on.
+	worth considering later on.*
