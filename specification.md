@@ -1,3 +1,5 @@
+# Specification for cleave-html
+
 ## For version 0.1, we will just inline the html files where directed. 
 
 ### Restrictions - 
@@ -5,6 +7,8 @@
   - There can be many entry points, but they must be within a folder in the root named `pages`
   - The source, or pages, must be indicated in the `cleave-html-config.json` file as an array.
   - The destination folder must be indicated in the `cleave-html-config.json` file as a string.
+
+---
 
 ### Let's say the folder structure is 
 ```
@@ -15,7 +19,8 @@ root
   - static //folder
   - cleave-html-config.json
 ```  
-  
+ 
+ 
 `header.html`:
 ```
 <head>
@@ -23,6 +28,7 @@ root
   ...
 </head>
 ```
+
 
 `index.html`:
 ```
@@ -45,6 +51,8 @@ root
   ]
 }
 ```
+
+---
 
 ### cleave-html would compile this to
 ```
