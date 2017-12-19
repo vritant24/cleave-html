@@ -17,6 +17,8 @@ root
     - index.html
     - header.html
   - static 
+    - main.css
+    - script.js
   - cleave-html-config.json
 ```  
  
