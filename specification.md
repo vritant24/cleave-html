@@ -13,10 +13,10 @@
 ### Let's say the folder structure is 
 ```
 root
-  - pages //folder
+  - pages 
     - index.html
     - header.html
-  - static //folder
+  - static 
   - cleave-html-config.json
 ```  
  
