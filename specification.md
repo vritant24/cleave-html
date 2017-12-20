@@ -47,7 +47,7 @@ root
 ```
 {
   src: [
-    "index.html"
+    "pages/index.html"
   ],
   dst: [
     "static"
