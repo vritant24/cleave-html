@@ -50,9 +50,7 @@ root
   src: [
     "pages/index.html"
   ],
-  dst: [
-    "static"
-  ]
+  dst: "static"
 }
 ```
 
