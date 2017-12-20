@@ -6,6 +6,7 @@
   - Cleaving will only be allowed outside tags.
   - There can be many entry points
   - The source, or pages, must be indicated in the `cleave-html-config.json` file as an array.
+    - paths need to be relative to root
   - The destination folder must be indicated in the `cleave-html-config.json` file as a string.
 
 ---
