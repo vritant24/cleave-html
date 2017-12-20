@@ -47,10 +47,10 @@ root
 ### cleave-html-config.json
 ```
 {
-  src: [
+  source: [
     "pages/index.html"
   ],
-  dst: "static"
+  destination: "static"
 }
 ```
 
