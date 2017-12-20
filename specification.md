@@ -15,6 +15,7 @@
 root
   - pages 
     - index.html
+  - partials
     - header.html
   - static 
     - main.css
