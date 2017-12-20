@@ -63,13 +63,12 @@ root
 ```
 root
   - pages 
-    - index.html
+    ...
   - partials
-    - header.html
+    ...
   - static 
-    - main.css
-    - script.js
-    - **index.html**
+    - index.html
+    ...
   - cleave-html-config.json
 ```  
 
