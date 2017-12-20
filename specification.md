@@ -69,7 +69,7 @@ root
   - static 
     - main.css
     - script.js
-    - index.html
+    - **index.html**
   - cleave-html-config.json
 ```  
 
