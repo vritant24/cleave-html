@@ -35,7 +35,7 @@ root
 `index.html`:
 ```
 <html>
-  <!-- cleave-html ./header.html -->
+  <!-- cleave ./header.html -->
   <body>
     ...
   </body>
