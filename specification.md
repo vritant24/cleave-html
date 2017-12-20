@@ -25,7 +25,7 @@ root
 ```  
  
  
-`header.html`:
+`partials/header.html`:
 ```
 <head>
   <title> Title </title>
@@ -34,7 +34,7 @@ root
 ```
 
 
-`index.html`:
+`pages/index.html`:
 ```
 <html>
   <!-- cleave ./header.html -->
@@ -59,6 +59,21 @@ root
 ---
 
 ### cleave-html would compile this to
+
+```
+root
+  - pages 
+    - index.html
+  - partials
+    - header.html
+  - static 
+    - main.css
+    - script.js
+    - index.html
+  - cleave-html-config.json
+```  
+
+`static/index.html`:
 ```
 <html>
   <head>
