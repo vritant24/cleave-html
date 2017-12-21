@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/vritant24/cleave-html/issues"
   },
-  "homepage": "https://github.com/vritant24/cleave-html#readme"
+  "homepage": "https://github.com/vritant24/cleave-html#readme",
+  "dependencies": {
+    "htmlparser2": "^3.9.2"
+  }
 }
