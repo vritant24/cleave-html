@@ -1,5 +1,5 @@
 const fs        = require('fs');
-const type      = require("../helpers/typecheck.js");
+const type      = require('../helpers/typecheck.js');
 
 console.log(type);
 const getConfig = (file_name) => {
