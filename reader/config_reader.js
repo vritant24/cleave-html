@@ -1,22 +1,38 @@
 const fs        = require('fs');
-const type      = require("../helpers/typecheck.js");
+const type      = require("../helpers/typecheck");
+const e         = require("../helpers/errors");
 
-console.log(type);
-const getConfig = (file_name) => {
-    var config;
+/**
+ * Reads the object from the given json file and return is
+ * @param {Name of the config file} file_name 
+ */
+const jsonReader = (file_name) => {
+    var config; //stores the json object
 
+    // check validity of the argument
     if(!file_name && type.isString(file_name)) {
         return config;
     }
 
     try {
-        config = JSON.parse(fs.readFileSync(file_name, 'utf8'));
-    } catch(e) {
-        //throw error
-        console.log(e)
+        // Read config from given json file
+        config = fs.readFileSync(file_name, 'utf8');
+    } catch(err) {
+        // If error in reading file
+        console.log(err);
+        throw(e.CONFIG_NOT_FOUND);
+    }
+
+    try {
+        config = JSON.parse(config)
+    } catch(err) {
+        // If given file does not have a JSON object
+        throw(e.INVALID_JSON);
     }
 
     return config;
 }
 
-module.exports = getConfig;
+module.exports = {
+    jsonReader
+};
