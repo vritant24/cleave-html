@@ -4,7 +4,7 @@
   "description": "A modular way to make static webpages",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "find ./tests -name '*_test.js' | xargs mocha -R spec"
   },
   "repository": {
     "type": "git",
