@@ -1,6 +1,6 @@
 const fs        = require('fs');
 const type      = require("../helpers/typecheck");
-const e         = require("../helpers/errors");
+const e         = require("../constants/errors");
 
 /**
  * Reads the object from the given json file and return is
@@ -19,11 +19,11 @@ const jsonReader = (file_name) => {
         config = fs.readFileSync(file_name, 'utf8');
     } catch(err) {
         // If error in reading file
-        console.log(err);
         throw(e.CONFIG_NOT_FOUND);
     }
 
     try {
+        // Parse JSON formatted config
         config = JSON.parse(config)
     } catch(err) {
         // If given file does not have a JSON object
