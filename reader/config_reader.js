@@ -3,7 +3,7 @@ const R         = require('ramda');
 
 const getConfig = (file_name, next) => {
     if(!R.is(String, file_name)) {
-      next('invalid file name');
+      next('Invalid File Name');
     }
     else {
       fs.readFile(file_name, 'utf8', (err, data) => {

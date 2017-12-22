@@ -1,10 +1,10 @@
 const getConfig = require('./reader/config_reader.js');
-const file = 15;
+const file = "cleave-html-config.json";
 
 getConfig(file, (err, data) => {
   if(err) {
     // handle err pipeline here
-    console.log("Error: ", err);
+    console.log(err);
   }
   else {
     console.log(data);
