@@ -7,7 +7,7 @@ const e         = require("../constants/errors");
  */
 exports.jsonReader = (file_name, next) => {
     if(!R.is(String, file_name)) {
-      next('Invalid File Name');
+      next(e.INVALID_FILE_NAME);
     }
     else {
       fs.readFile(file_name, 'utf8', (err, data) => {
