@@ -4,14 +4,7 @@ String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
 }
 
-function generateTypeCheck(type) {
-    return function (token) {
-        if(token && typeof token === type) {
-            return true;
-        }
-        return false;
-    }
-};
+const generateTypeCheck = (type) => (token) => (token && typeof token === type);
 
 module.exports = (() => {
     var obj = {};

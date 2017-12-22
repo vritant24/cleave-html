@@ -1,22 +1,15 @@
 const fs        = require('fs');
-const type      = require('../helpers/typecheck.js');
+const R         = require('ramda');
 
-console.log(type);
-const getConfig = (file_name) => {
-    var config;
-
-    if(!file_name && type.isString(file_name)) {
-        return config;
+const getConfig = (file_name, next) => {
+    if(!R.is(String, file_name)) {
+      next('invalid file name');
     }
-
-    try {
-        config = JSON.parse(fs.readFileSync(file_name, 'utf8'));
-    } catch(e) {
-        //throw error
-        console.log(e)
+    else {
+      fs.readFile(file_name, 'utf8', (err, data) => {
+        next(err, JSON.parse(data));
+      });
     }
-
-    return config;
-}
+};
 
 module.exports = getConfig;
