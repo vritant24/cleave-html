@@ -1,11 +1,12 @@
 const fs        = require('fs');
+const R         = require('ramda');
 const e         = require("../constants/errors");
 const _         = require("../constants/globals");
 const type      = require("../helpers/typecheck");
 
 /**
  * Reads the object from the given json file and return is
- * @param {Name of the config file} file_name 
+ * @param {Name of the config file} file_name
  */
 const jsonReader = (file_name) => {
     var config = null; //stores the json object
