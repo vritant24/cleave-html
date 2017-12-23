@@ -1,4 +1,4 @@
-const fs        = require('fs');
+const fs        = require('fs-extra');
 const R         = require('ramda');
 const e         = require("../constants/errors");
 const _         = require("../constants/globals");
@@ -8,7 +8,7 @@ const type      = require("../helpers/typecheck");
  * Reads the object from the given json file and return is
  * @param {Name of the config file} file_name
  */
-const jsonReader = (file_name) => {
+async function jsonReader(file_name) {
     var config = null; //stores the json object
 
     // check validity of the argument
@@ -18,28 +18,20 @@ const jsonReader = (file_name) => {
 
     try {
         // Read config from given json file
-        config = fs.readFileSync(file_name, 'utf8');
+        config = await fs.readJson(file_name);
+        return config;
     } catch(err) {
         // If error in reading file
-        throw(e.config.CONFIG_NOT_FOUND);
+        throw(e.config.CONFIG_ERROR);
     }
-
-    try {
-        // Parse JSON formatted config
-        config = JSON.parse(config)
-    } catch(err) {
-        // If given file does not have a JSON object
-        throw(e.config.INVALID_JSON);
-    }
-
-    return config;
 }
 
+// console.log(jsonReader("test_file.json"));
 /**
  * Checks whether given config is properly formatted
  * @param {Config object read from config file} config 
  */
-const checkConfig = (config) => {
+function checkConfig(config) {
     // Check for valid argument
     if(!config || !type.isObject(config)) {
         throw e.INVALID_ARGUMENT;
