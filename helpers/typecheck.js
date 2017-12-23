@@ -22,5 +22,9 @@ module.exports = (() => {
     for(var s of types) {
         obj["is" + s.capitalize()] = generateTypeCheck(s);
     }
+
+    //add isArray
+    obj.isArray = Array.isArray;
+
     return obj
 })();
