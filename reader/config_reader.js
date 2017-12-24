@@ -2,7 +2,6 @@ const fs        = require('fs-extra');
 const R         = require('ramda');
 const e         = require("../constants/errors");
 const _         = require("../constants/globals");
-const type      = require("../helpers/typecheck");
 
 /**
  * Reads the object from the given json file and return is
