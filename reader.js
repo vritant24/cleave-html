@@ -1,12 +1,5 @@
-const jsonReader = require('./reader/config_reader.js');
-const file = "cleave-html-config.json";
+const getConfig = require('./reader/config_reader.js');
 
-jsonReader(file, (err, data) => {
-  if(err) {
-    // handle err pipeline here
-    console.log(err);
-  }
-  else {
-    console.log(data);
-  }
+getConfig().then(data => {
+    console.log("Config File Read and Validated. Final Ouput: \n", data);
 });
