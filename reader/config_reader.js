@@ -1,3 +1,5 @@
+"use strict";
+
 const fs        = require('fs-extra');
 const R         = require('ramda');
 const e         = require("../constants/errors");
@@ -64,4 +66,8 @@ const getConfig = () => {
     return jsonReader(file_name).then(validateConfig);
 }
 
-module.exports = getConfig;
+module.exports = {
+    getConfig,
+    jsonReader,
+    validateConfig
+};

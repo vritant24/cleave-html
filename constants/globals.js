@@ -1,3 +1,5 @@
+"use strict";
+
 const CONFIG_FILE   = "cleave-html-config.json";
 const FILE_TYPE     = "utf8"; 
 
