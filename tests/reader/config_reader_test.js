@@ -1,3 +1,5 @@
+"use strict";
+
 const fs                = require('fs');
 const chai              = require('chai');
 const chai_as_promised  = require('chai-as-promised');
@@ -47,7 +49,7 @@ describe('JSON Reader', function() {
 });
 
 describe('Check Config', function() {
-    const {checkConfig} = config_reader; 
+    const {validateConfig} = config_reader; 
 
     it('should throw no errors for a valid object', function() {
         const obj = {
@@ -55,12 +57,12 @@ describe('Check Config', function() {
             destination: "static",
         };
 
-        chai.expect(checkConfig(obj)).to.equal(undefined);
+        chai.expect(validateConfig(obj)).to.eventually.equal(undefined);
     });
 
     it('should throw an error absent source or destination', function() {
-        chai.expect(() => checkConfig({source: ["a"]})).to.throw(e.config.INVALID_DST);
-        chai.expect(() => checkConfig({destination: "a"})).to.throw(e.config.INVALID_SRC);
+        chai.expect(validateConfig({source: ["a"]})).to.be.rejectedWith(e.config.INVALID_DST);
+        chai.expect(validateConfig({destination: "a"})).to.be.rejectedWith(e.config.INVALID_SRC);
     });
 
     it('should throw an error for incorrect source', function() {
@@ -69,10 +71,10 @@ describe('Check Config', function() {
         }
 
         obj.source = "";
-        chai.expect(() => checkConfig(obj)).to.throw(e.config.INVALID_SRC);
+        chai.expect(validateConfig(obj)).to.be.rejectedWith(e.config.INVALID_SRC);
 
         obj.source = [1];
-        chai.expect(() => checkConfig(obj)).to.throw(e.config.INVALID_SRC);
+        chai.expect(validateConfig(obj)).to.be.rejectedWith(e.config.INVALID_SRC);
     });
 
     it('should throw an error for incorrect destination', function() {
@@ -81,9 +83,9 @@ describe('Check Config', function() {
         }
 
         obj.destination = [];
-        chai.expect(() => checkConfig(obj)).to.throw(e.config.INVALID_DST);
+        chai.expect(validateConfig(obj)).to.be.rejectedWith(e.config.INVALID_DST);
 
         obj.destination = 1;
-        chai.expect(() => checkConfig(obj)).to.throw(e.config.INVALID_DST);
+        chai.expect(validateConfig(obj)).to.be.rejectedWith(e.config.INVALID_DST);
     });
 });

@@ -1,3 +1,5 @@
+"use strict";
+
 const ERROR = "Error: ";
 
 const FILE_NOT_FOUND    = ERROR + "File not found";
