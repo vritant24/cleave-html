@@ -16,7 +16,6 @@ const parseSources = ({ source, static }) => {
       console.log(data);
       filesArray.push(data);
       if(filesArray.length === source.length) {
-        //console.log('resolved with: ', filesArray);
         resolve(filesArray);
       }
     };
