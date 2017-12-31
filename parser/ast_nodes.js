@@ -1,6 +1,6 @@
 "use strict";
 
-const {ast_types} = require("../constants/ast");
+const ast_types = require("../constants/ast");
 
 /* Tag Node */
 function tag(key) {

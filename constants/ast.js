@@ -1,12 +1,8 @@
-let i = 0;
-
 const ast_types = {
-    tag         : i++,
-    attribute   : i++,
-    text        : i++,
-    comment     : i++,
+    tag: 0,
+    attribute: 1,
+    text: 2,
+    comment: 3,
 };
 
-module.exports = {
-    ast_types,
-};
+module.exports = ast_types;
