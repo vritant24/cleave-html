@@ -10,7 +10,10 @@ function tag(key) {
 };
 
 tag.prototype = {
-    this.type   = _.ast_types.tag;
+    this.type   = _.ast_types.tag,
+
+    this.addChild       = function(child) {this.children.push(child)},
+    this.addAttribute   = function(attribute) {this.attribute.push(attribute)},
 };
 /* -------- */
 
@@ -21,7 +24,7 @@ function attribute(key, value) {
 };
 
 attribute.prototype = {
-    this.type   = _.ast_types.attribute;
+    this.type   = _.ast_types.attribute
 };
 /* -------- */
 
@@ -31,7 +34,7 @@ function text(string) {
 };
 
 text.prototype = {
-    this.type = _.ast_types.text;
+    this.type = _.ast_types.text
 };
 /* -------- */
 
@@ -41,7 +44,7 @@ function comment(string) {
 };
 
 tag.prototype = {
-    this.type = _.ast_types.comment;
+    this.type = _.ast_types.comment
 };
 /* -------- */
 
