@@ -2,26 +2,52 @@
 
 const _ = require("../constants/ast");
 
+/* Tag Node */
 function tag(key) {
-    this.type   = _.ast_types.tag;
     this.key    = key;
     this.attributes = [];
     this.children = []; 
 };
 
+tag.prototype = {
+    this.type   = _.ast_types.tag;
+};
+/* -------- */
+
+/* Attribute Node */
 function attribute(key, value) {
-    this.type = _.ast_types.attribute;
     this.key = key;
     this.value = value;
 };
 
+attribute.prototype = {
+    this.type   = _.ast_types.attribute;
+};
+/* -------- */
+
+/* Text Node */
 function text(string) {
-    this.type = _.ast_types.text;
     this.text = string;
 };
 
+text.prototype = {
+    this.type = _.ast_types.text;
+};
+/* -------- */
+
+/* Comment Node */
 function comment(string) {
-    this.type = _.ast_types.comment;
     this.value = string;
 };
 
+tag.prototype = {
+    this.type = _.ast_types.comment;
+};
+/* -------- */
+
+module.exports = {
+    tag,
+    attribute,
+    text,
+    comment
+};
