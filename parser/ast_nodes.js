@@ -12,8 +12,8 @@ function tag(key) {
 tag.prototype = {
     type : ast_types.tag,
 
-    addChild : child => this.children.push(child),
-    addAttribute : attribute => this.attribute.push(attribute),
+    addChild : function(child) { this.children.push(child) },
+    addAttribute : function(attribute) { this.attribute.push(attribute) },
 };
 /* -------- */
 

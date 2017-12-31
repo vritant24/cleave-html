@@ -9,4 +9,4 @@ const ast_types = {
 
 module.exports = {
     ast_types,
-}
+};
