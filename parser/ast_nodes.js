@@ -1,53 +1,54 @@
 "use strict";
 
+
 const ast_types = require("../constants/ast_types");
 
 /* Tag Node */
-function tag(key) {
+function Tag(key) {
     this.key = key;
     this.attributes = [];
     this.children = []; 
 };
 
-tag.prototype.type = ast_types.tag;
+Tag.prototype.type = ast_types.tag;
 
-tag.prototype.addChild = function(child) { 
+Tag.prototype.addChild = function(child) { 
     this.children.push(child) 
 };
 
-tag.prototype.addAttribute = function(attribute) { 
+Tag.prototype.addAttribute = function(attribute) { 
     this.attribute.push(attribute)
 };
 /* -------- */
 
 /* Attribute Node */
-function attribute(key, value) {
+function Attribute(key, value) {
     this.key = key;
     this.value = value;
 };
 
-attribute.prototype.type  = ast_types.attribute;
+Attribute.prototype.type  = ast_types.attribute;
 /* -------- */
 
 /* Text Node */
-function text(string) {
+function Text(string) {
     this.text = string;
 };
 
-text.prototype.type = ast_types.text;
+Text.prototype.type = ast_types.text;
 /* -------- */
 
 /* Comment Node */
-function comment(string) {
+function Comment(string) {
     this.value = string;
 };
 
-comment.prototype.type = ast_types.comment;
+Comment.prototype.type = ast_types.comment;
 /* -------- */
 
 module.exports = {
-    tag,
-    attribute,
-    text,
-    comment
+    Tag,
+    Attribute,
+    Text,
+    Comment
 };

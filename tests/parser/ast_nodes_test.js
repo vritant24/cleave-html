@@ -11,10 +11,10 @@ const ast_nodes = require('../../parser/ast_nodes');
 const string1 = 'random string 1';
 const string2 = 'random string 2';
 
-const tag_node = new ast_nodes.tag(string1);
-const attribute_node = new ast_nodes.attribute(string1, string2);
-const text_node = new ast_nodes.text(string1);
-const comment_node = new ast_nodes.comment(string1);
+const tag_node = new ast_nodes.Tag(string1);
+const attribute_node = new ast_nodes.Attribute(string1, string2);
+const text_node = new ast_nodes.Text(string1);
+const comment_node = new ast_nodes.Comment(string1);
 /* ------------------ */
 
 
