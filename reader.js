@@ -1,5 +1,3 @@
-"use strict";
-
 const { getConfig } = require('./reader/config_reader.js');
 
 getConfig().then(data => {

@@ -1,5 +1,3 @@
-"use strict";
-
 const fs        = require('fs-extra');
 const R         = require('ramda');
 const e         = require("../constants/errors");
