@@ -67,25 +67,37 @@ describe('AST contructors', function() {
 
 describe('Tag Node Functions', function() {
     it('should add a child to children array', function() {
+        const child = new ast_nodes.Tag("div");
         tag_node.children = [];
-        tag_node.addChild(string1);
-        chai.expect(tag_node.children[0]).to.equal(string1);
+        
+        tag_node.addChild(child);
+
+        chai.expect(tag_node.children[0]).to.deep.equal(child);
     });
 
     it('should add a child to attribute array', function() {
+        const attr = new ast_nodes.Attribute("class", "active");
         tag_node.attribute = [];
-        tag_node.addAttribute(string1);
-        chai.expect(tag_node.attribute[0]).to.equal(string1);
+
+        tag_node.addAttribute(attr);
+
+        chai.expect(tag_node.attribute[0]).to.deep.equal(attr);
     });
 
     it('should maintain the order the children are added in', function() {
-        tag_node.children = [];
         const string3 = "random string 3";
-        tag_node.addChild(string1);
-        tag_node.addChild(string2);
-        tag_node.addChild(string3);
-        chai.expect(tag_node.children[0]).to.equal(string1);
-        chai.expect(tag_node.children[1]).to.equal(string2);
-        chai.expect(tag_node.children[2]).to.equal(string3);
+        tag_node.children = [];
+        
+        const child1 = new ast_nodes.Tag("div");
+        const child2 = new ast_nodes.Text("this is some text");
+        const child3 = new ast_nodes.Comment("this is a comment");
+
+        tag_node.addChild(child1);
+        tag_node.addChild(child2);
+        tag_node.addChild(child3);
+
+        chai.expect(tag_node.children[0]).to.deep.equal(child1);
+        chai.expect(tag_node.children[1]).to.deep.equal(child2);
+        chai.expect(tag_node.children[2]).to.deep.equal(child3);
     });
 });
