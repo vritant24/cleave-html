@@ -9,11 +9,14 @@ function tag(key) {
     this.children = []; 
 };
 
-tag.prototype = {
-    type : ast_types.tag,
+tag.prototype.type = ast_types.tag;
 
-    addChild : function(child) { this.children.push(child) },
-    addAttribute : function(attribute) { this.attribute.push(attribute) },
+tag.prototype.addChild = function(child) { 
+    this.children.push(child) 
+};
+
+tag.prototype.addAttribute = function(attribute) { 
+    this.attribute.push(attribute)
 };
 /* -------- */
 
@@ -23,9 +26,7 @@ function attribute(key, value) {
     this.value = value;
 };
 
-attribute.prototype = {
-    type : ast_types.attribute
-};
+attribute.prototype.type  = ast_types.attribute;
 /* -------- */
 
 /* Text Node */
@@ -33,9 +34,7 @@ function text(string) {
     this.text = string;
 };
 
-text.prototype = {
-    type : ast_types.text
-};
+text.prototype.type = ast_types.text;
 /* -------- */
 
 /* Comment Node */
@@ -43,9 +42,7 @@ function comment(string) {
     this.value = string;
 };
 
-comment.prototype = {
-    type : ast_types.comment
-};
+comment.prototype.type = ast_types.comment;
 /* -------- */
 
 module.exports = {
