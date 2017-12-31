@@ -1,8 +1,9 @@
-const getConfig     = require('./reader/config_reader.js');
-const parseSources = require('./parser.js');
+const getConfig        = require('./readers/config_reader.js');
+const readSourceFiles  = require('./readers/source_reader.js');
+const createReaders    = require('./readers/create_readers.js');
+const parser           = require('./parser.js');
 
 getConfig()
-.then(parseSourcess)
-.then((files) => {
-  console.log("File Buffer =>", files);
-});
+  .then(readSourceFiles)
+  .then(createReaders)
+  .then(parser);
