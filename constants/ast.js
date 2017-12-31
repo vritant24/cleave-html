@@ -1,8 +1,8 @@
 const ast_types = {
-    tag: 0,
-    attribute: 1,
-    text: 2,
-    comment: 3,
+    tag: "tag",
+    attribute: "attribute",
+    text: "text",
+    comment:  "comment",
 };
 
 module.exports = ast_types;

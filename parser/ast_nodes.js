@@ -54,3 +54,6 @@ module.exports = {
     text,
     comment
 };
+
+var a = new tag("a");
+console.log(a.type);
