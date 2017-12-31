@@ -17,8 +17,8 @@ const config = {
 }
 /* -------------------- */
 
-module.exports = {
+module.exports = Object.freeze({
     FILE_NOT_FOUND,
     INVALID_ARGUMENT,
     config,
-}
+});

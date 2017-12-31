@@ -48,7 +48,7 @@ describe('JSON Reader', function() {
     });
 });
 
-describe('Check Config', function() {
+describe('Validate Config', function() {
     const {validateConfig} = config_reader; 
 
     it('should throw no errors for a valid object', function() {
@@ -57,7 +57,7 @@ describe('Check Config', function() {
             destination: "static",
         };
 
-        chai.expect(validateConfig(obj)).to.eventually.equal(undefined);
+        chai.expect(validateConfig(obj)).to.eventually.equal(obj);
     });
 
     it('should throw an error absent source or destination', function() {
