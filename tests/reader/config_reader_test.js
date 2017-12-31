@@ -1,5 +1,3 @@
-"use strict";
-
 const fs                = require('fs');
 const chai              = require('chai');
 const chai_as_promised  = require('chai-as-promised');
