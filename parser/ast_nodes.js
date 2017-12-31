@@ -1,6 +1,6 @@
 "use strict";
 
-const ast_types = require("../constants/ast");
+const ast_types = require("../constants/ast_types");
 
 /* Tag Node */
 function tag(key) {
@@ -54,6 +54,3 @@ module.exports = {
     text,
     comment
 };
-
-var a = new tag("a");
-console.log(a.type);

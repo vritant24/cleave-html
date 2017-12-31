@@ -43,7 +43,6 @@ async function validateConfig(config) {
     // Check if the elements of source are strings
     config.source.forEach( s => {
         if(!R.is(String, s)) {
-            console.log(typeof s);
             throw(e.config.INVALID_SRC);
         }
     });
