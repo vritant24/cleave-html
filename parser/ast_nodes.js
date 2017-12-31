@@ -1,19 +1,19 @@
 "use strict";
 
-const _ = require("../constants/ast");
+const {ast_types} = require("../constants/ast");
 
 /* Tag Node */
 function tag(key) {
-    this.key    = key;
+    this.key = key;
     this.attributes = [];
     this.children = []; 
 };
 
 tag.prototype = {
-    this.type   = _.ast_types.tag,
+    type : ast_types.tag,
 
-    this.addChild       = function(child) {this.children.push(child)},
-    this.addAttribute   = function(attribute) {this.attribute.push(attribute)},
+    addChild : child => this.children.push(child),
+    addAttribute : attribute => this.attribute.push(attribute),
 };
 /* -------- */
 
@@ -24,7 +24,7 @@ function attribute(key, value) {
 };
 
 attribute.prototype = {
-    this.type   = _.ast_types.attribute
+    type : ast_types.attribute
 };
 /* -------- */
 
@@ -34,7 +34,7 @@ function text(string) {
 };
 
 text.prototype = {
-    this.type = _.ast_types.text
+    type : ast_types.text
 };
 /* -------- */
 
@@ -43,8 +43,8 @@ function comment(string) {
     this.value = string;
 };
 
-tag.prototype = {
-    this.type = _.ast_types.comment
+comment.prototype = {
+    type : ast_types.comment
 };
 /* -------- */
 
