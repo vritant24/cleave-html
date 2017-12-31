@@ -3,7 +3,7 @@ const fs        = require('fs');
 /*** Synchronous Version ***/
 const readSourceFiles = ({ source, static }) => {
   return source.map((file_name) => {
-    return fs.readFileSync(file_name);
+    return fs.readFileSync(file_name, 'utf8');
   });
 };
 
