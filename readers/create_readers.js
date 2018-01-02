@@ -10,6 +10,14 @@ Reader.prototype.next = function() {
   return this.file[this.index++];
 };
 
+/* Returns next non-space character */
+Reader.prototype.nextToken = function() {
+  while(isSpace(this.peek())) {
+    this.next();
+  }
+  return this.next();
+};
+
 /* Returns next character in file without advancing Reader's index */
 Reader.prototype.peek = function() {
   return this.file[this.index];
