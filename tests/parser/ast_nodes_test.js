@@ -8,13 +8,14 @@ const ast_types = require('../../constants/ast_types');
 const ast_nodes = require('../../parser/ast_nodes');
 
 /* Instantiating nodes */
-const string1 = 'random string 1';
-const string2 = 'random string 2';
+const string1 = 'not so random string 1';
+const string2 = 'not so random string 2';
 
 const tag_node = new ast_nodes.Tag(string1);
 const attribute_node = new ast_nodes.Attribute(string1, string2);
 const text_node = new ast_nodes.Text(string1);
 const comment_node = new ast_nodes.Comment(string1);
+const cleave_node = new ast_nodes.Cleave(string1);
 /* ------------------ */
 
 
@@ -33,16 +34,20 @@ describe('AST Types', function() {
         chai.assert(attribute_node.type === ast_types.attribute);
         chai.assert(text_node.type === ast_types.text);
         chai.assert(comment_node.type === ast_types.comment);
+        chai.assert(cleave_node.type === ast_types.cleave);
     });
 });
 
 describe('AST contructors', function() {
     it('should contain right values for the tag node after instantiation', function() {
-        chai.expect(tag_node.key).to.equal(string1);
-        chai.expect(tag_node.children).to.be.a("array");
-        chai.expect(tag_node.attributes).to.be.a("array");
-        chai.expect(tag_node.children.length).to.equal(0);
-        chai.expect(tag_node.attributes.length).to.equal(0);
+        var arr = [tag_node, cleave_node];
+        for(let el of arr) {
+            chai.expect(el.key).to.equal(string1);
+            chai.expect(el.children).to.be.a("array");
+            chai.expect(el.attributes).to.be.a("array");
+            chai.expect(el.children.length).to.equal(0);
+            chai.expect(el.attributes.length).to.equal(0);
+        }
     });
 
     it('should contain right values for the attribute node after instantiation', function() {
@@ -99,5 +104,25 @@ describe('Tag Node Functions', function() {
         chai.expect(tag_node.children[0]).to.deep.equal(child1);
         chai.expect(tag_node.children[1]).to.deep.equal(child2);
         chai.expect(tag_node.children[2]).to.deep.equal(child3);
+    });
+});
+
+describe('Cleave Node Functions', function() {
+    it('should add a child to children array', function() {
+        const child = new ast_nodes.Tag("div");
+        cleave_node.children = [];
+        
+        cleave_node.addChild(child);
+
+        chai.expect(cleave_node.children[0]).to.deep.equal(child);
+    });
+    it('should throw error on adding more than one child', function() {
+        const child1 = new ast_nodes.Tag("div1");
+        const child2 = new ast_nodes.Tag("div2");
+
+        cleave_node.children = [];
+        cleave_node.addChild(child1);
+        
+        chai.expect(() => cleave_node.addChild(child2)).to.throw(e.ast_node.INVALID_N_CHILD);
     });
 });
