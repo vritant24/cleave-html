@@ -3,6 +3,7 @@ const ast_types = {
     attribute: "attribute",
     text: "text",
     comment:  "comment",
+    cleave: "cleave",
 };
 
 module.exports = Object.freeze(ast_types);
