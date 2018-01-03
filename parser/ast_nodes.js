@@ -65,7 +65,7 @@ function Comment(string) {
 Comment.prototype.type = ast_types.comment;
 /* -------- */
 
-/* Comment Node */
+/* Cleave Node */
 function Cleave(key) {
     Tag.call(this, key);
 };
