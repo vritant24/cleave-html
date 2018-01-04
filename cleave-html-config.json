@@ -1,6 +1,6 @@
 {
     "source": [
-      "tests/TestProj/index.html"
+      "tests/Example_Web_Project/index.html"
     ],
     "destination": "static"
 }

@@ -1,3 +1,5 @@
+"use strict";
+
 /* Tests if a character is a whitespace character */
 const isSpace = c => /\s/.test(c);
 

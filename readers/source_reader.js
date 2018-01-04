@@ -1,14 +1,16 @@
-const fs        = require('fs');
+"use strict";
+
+const fs        = require('fs-extra');
 
 /*** Synchronous Version ***/
-const readSourceFiles = ({ source, static }) => {
+const readSourceFiles = ({ source }) => {
   return source.map((file_name) => {
     return fs.readFileSync(file_name, 'utf8');
   });
 };
 
 /*** Asynchronous Version ***
-const readSourceFiles = ({ source, static }) => {
+const readSourceFiles = ({ source }) => {
   let filesArray = [];
   return new Promise((resolve) => {
     const cont = (err, data) => {
