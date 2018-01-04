@@ -1,7 +1,6 @@
 {
     "source": [
-      "index.js",
-      "parser.js"
+      "tests/TestProj/index.html"
     ],
     "destination": "static"
 }
