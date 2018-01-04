@@ -15,7 +15,7 @@ const config = {
     CONFIG_ERROR,
     INVALID_SRC,
     INVALID_DST,
-}
+};
 /* -------------------- */
 
 /* AST Node errors */
@@ -35,7 +35,23 @@ const ast_node = {
     INVALID_ATTR_O,
     INVALID_TEXT_O,
     INVALID_COMMENT_O,
-}
+};
+/* -------------------- */
+
+/* Document Tree Errors */
+const INVALID_IMPORT    = ERROR + "Invalid import. Import needs to have a name and src attribute";
+const INVALID_I_ATTR    = ERROR + "Invalid import. Import name and path cannot be empty";
+const REPEATED_NAME     = ERROR + "Invalid name. Imported cleave names cannot be repeated";
+const INVALID_C_NODE    = ERROR + "Invalid cleave node.";
+const INVALID_T_NODE    = ERROR + "Invalid tag node";
+
+const doc_tree = {
+    INVALID_IMPORT,
+    INVALID_I_ATTR,
+    REPEATED_NAME,
+    INVALID_C_NODE,
+    INVALID_T_NODE
+};
 /* -------------------- */
 
 module.exports = Object.freeze({
@@ -43,4 +59,5 @@ module.exports = Object.freeze({
     INVALID_ARGUMENT,
     config,
     ast_node,
+    doc_tree,
 });
