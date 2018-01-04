@@ -1,3 +1,5 @@
+"use strict";
+
 const fs        = require('fs-extra');
 const R         = require('ramda');
 const e         = require("../constants/errors");
@@ -41,7 +43,6 @@ async function validateConfig(config) {
     // Check if the elements of source are strings
     config.source.forEach( s => {
         if(!R.is(String, s)) {
-            console.log(typeof s);
             throw(e.config.INVALID_SRC);
         }
     });
@@ -64,4 +65,8 @@ const getConfig = () => {
     return jsonReader(file_name).then(validateConfig);
 }
 
-module.exports = getConfig;
+module.exports = {
+    getConfig,
+    jsonReader,
+    validateConfig
+};
