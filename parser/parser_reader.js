@@ -6,6 +6,9 @@ const isSpace = c => /\s/.test(c);
 /* Currently this allows html tags to contain any characters that aren't spaces */
 const isValidTagCharacter = c => (c !== '/' && c !== '>' && !isSpace(c))
 
+/* Tests if a character is an english alphabetical character */
+const isAlpha = c => /[a-zA-Z]/.test(c)
+
 function Reader(file) {
   this.file = file;
   this.index = 0;
@@ -23,18 +26,14 @@ Reader.prototype.peekChar = function() {
 
 /* Returns next non-space character */
 Reader.prototype.next = function() {
-  while(isSpace(this.peekChar())) {
-    this.nextChar();
-  }
+  while(isSpace(this.peekChar())) { this.nextChar(); }
   return this.nextChar();
 };
 
 /* Returns next non-space character in file without advancing Reader's index */
 Reader.prototype.peek = function() {
   let peekIndex = this.index;
-  while(isSpace(this.peekChar())) {
-    peekIndex++;
-  }
+  while(isSpace(this.file[peekIndex])) { peekIndex++; }
   return this.file[peekIndex];
 };
 
@@ -50,6 +49,5 @@ Reader.prototype.getTag = function() {
   return tag;
 };
 
-const createReaders = files => files.map(file => new Reader(file));
-
-module.exports = createReaders;
+exports.Reader = Reader;
+exports.createParserReaders = files => files.map(file => new Reader(file));
