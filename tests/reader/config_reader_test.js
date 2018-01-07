@@ -7,7 +7,7 @@ const assert            = require('assert');
 
 const e                 = require('../../constants/errors');
 const _                 = require('../../constants/globals');
-const config_reader     = require('../../reader/config_reader');
+const config_reader     = require('../../readers/config_reader');
 
 chai.use(chai_as_promised);
 
@@ -24,10 +24,10 @@ describe('JSON Reader', function() {
         }
         fs.writeFileSync(file_name, JSON.stringify(obj), 'utf8');
         const res = await jsonReader(file_name);
-        // deeply compare objects 
+        // deeply compare objects
         chai.expect(res).to.deep.equal(obj);
     });
-    
+
     it('should throw an error for a file with invalid JSON', () => {
         // Write invalid JSON to file
         fs.writeFileSync(file_name, "This is not json");
@@ -49,7 +49,7 @@ describe('JSON Reader', function() {
 });
 
 describe('Validate Config', function() {
-    const {validateConfig} = config_reader; 
+    const {validateConfig} = config_reader;
 
     it('should throw no errors for a valid object', function() {
         const obj = {
