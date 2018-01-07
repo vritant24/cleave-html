@@ -1,31 +1,13 @@
 "use strict";
 
-const fs        = require('fs-extra');
-
-/*** Synchronous Version ***/
+const fs            = require('fs-extra');
+const { FILE_TYPE } = require('../constants/globals.js');
+console.log(FILE_TYPE);
+/* Returns array of all source files */
 const readSourceFiles = ({ source }) => {
   return source.map((file_name) => {
-    return fs.readFileSync(file_name, 'utf8');
+    return fs.readFileSync(file_name, FILE_TYPE);
   });
 };
-
-/*** Asynchronous Version ***
-const readSourceFiles = ({ source }) => {
-  let filesArray = [];
-  return new Promise((resolve) => {
-    const cont = (err, data) => {
-      filesArray.push(data);
-      if(filesArray.length === source.length) {
-        resolve(filesArray);
-      }
-    };
-    source.forEach((file_name) => {
-      console.log(file_name);
-      fs.readFile(file_name, cont);
-    });
-  });
-};
-*/
-
 
 module.exports = readSourceFiles;
