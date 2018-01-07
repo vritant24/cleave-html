@@ -2,7 +2,7 @@
 
 const fs            = require('fs-extra');
 const { FILE_TYPE } = require('../constants/globals.js');
-console.log(FILE_TYPE);
+
 /* Returns array of all source files */
 const readSourceFiles = ({ source }) => {
   return source.map((file_name) => {

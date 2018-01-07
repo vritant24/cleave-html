@@ -1,7 +1,7 @@
 "use strict";
 
 const CONFIG_FILE   = "cleave-html-config.json";
-const FILE_TYPE     = "utf-8";
+const FILE_TYPE     = "utf8";
 const EOF           = "EOF";
 
 module.exports = Object.freeze({
