@@ -20,7 +20,8 @@
   "dependencies": {
     "fs-extra": "^5.0.0",
     "htmlparser2": "^3.9.2",
-    "ramda": "^0.25.0"
+    "ramda": "^0.25.0",
+    "z": "^1.0.4"
   },
   "devDependencies": {
     "chai": "^4.1.2",

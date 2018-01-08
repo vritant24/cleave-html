@@ -8,4 +8,7 @@ const parser                    = require('./parser/parser.js');
 getConfig()
   .then(readSourceFiles)
   .then(createParserReaders)
-  .then(parser);
+  .then(parser)
+  .catch((err) => {
+    console.log(err);
+  });
