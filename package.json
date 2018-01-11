@@ -1,11 +1,12 @@
 {
   "name": "cleave-html",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A modular way to make static webpages",
   "main": "index.js",
   "scripts": {
     "test": "find ./tests -name '*_test.js' | xargs mocha -R spec"
   },
+  "bin": "./bin/cleave",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vritant24/cleave-html.git"
@@ -19,6 +20,7 @@
   "dependencies": {
     "fs-extra": "^5.0.0",
     "htmlparser2": "^3.9.2",
+    "meow": "^4.0.0",
     "ramda": "^0.25.0"
   },
   "devDependencies": {

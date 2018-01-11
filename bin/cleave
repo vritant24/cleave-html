@@ -1,0 +1,117 @@
+#!/usr/bin/env node
+
+/**
+ * @file cleave-html command Line Interface
+ * @author Drew Atkinson
+ * 
+ * Parts adapted from node-sass (MIT License)
+ */
+
+const meow = require('meow');
+const path = require('path');
+const Emitter = require('events').EventEmitter;
+
+var cli = meow({
+    flags: {
+        output: {
+            type: 'string',
+            alias: 'o'
+        },
+        watch: {
+            type: 'boolean',
+            alias: 'w',
+            default: false
+        }
+    }
+})
+
+/**
+ * Is a Directory
+ *
+ * @param {String} filePath
+ * @returns {Boolean}
+ * @api private
+ */
+
+function isDirectory(filePath) {
+    var isDir = false;
+    try {
+        var absolutePath = path.resolve(filePath);
+        isDir = fs.statSync(absolutePath).isDirectory();
+    } catch (e) {
+        isDir = e.code === 'ENOENT';
+    }
+    return isDir;
+}
+
+
+/**
+ * Create an Event Emitter
+ *
+ * @api private
+ * @returns {Emitter}
+ */
+
+function getEmitter() {
+    var emitter = new Emitter();
+
+    emitter.on('error', function (err) {
+        console.error(err);
+        if (!options.watch) {
+            process.exit(1);
+        }
+    });
+
+    emitter.on('warn', function (data) {
+        if (!options.quiet) {
+            console.warn(data);
+        }
+    });
+
+    return emitter;
+}
+
+/**
+ * Construct Options Object
+ * 
+ * @param {Object} cli
+ * @returns {Object}
+ */
+function getOptions(args, options) {
+
+    options.src = args;
+    
+    if (options.output) {
+        options.dest = path.join(
+            path.resolve(options.output), [path.basename(options.src, path.extname(options.src)), '.html'].join('')); // replace ext.
+    }
+
+    return options;
+}
+
+/**
+ * Run
+ * 
+ * @param options
+ * @param emitter 
+ */
+function run(options, emitter) {
+    console.log(options);
+    // TODO: this is where the library will be called
+}
+
+var options = getOptions(cli.input, cli.flags);
+var emitter = getEmitter();
+
+if (!options.src && process.stdin.isTTY) {
+    emitter.emit('error', 'Plese provide a file or directory to render!');
+}
+
+if (options.src) {
+    if (isDirectory(options.src)) {
+        options.directory = options.src;
+        run(optons, emitter);
+    } else {
+        run(options, emitter);
+    }
+}
